@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Client.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Client.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">time</span><span class="s0">, </span><span class="s1">socket</span><span class="s0">, </span><span class="s1">sys</span>
+
+<span class="s1">print(</span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">Welcome to Chat Room</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">print(</span><span class="s2">&quot;Initialising....</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">time.sleep(</span><span class="s3">1</span><span class="s1">)</span>
+
+<span class="s1">s = socket.socket()</span>
+<span class="s1">shost = socket.gethostname()</span>
+<span class="s1">ip = socket.gethostbyname(shost)</span>
+<span class="s1">print(shost</span><span class="s0">, </span><span class="s2">&quot;(&quot;</span><span class="s0">, </span><span class="s1">ip</span><span class="s0">, </span><span class="s2">&quot;)</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">port = </span><span class="s3">5555</span>
+
+<span class="s1">time.sleep(</span><span class="s3">1</span><span class="s1">)</span>
+<span class="s1">s.connect((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="s0">, </span><span class="s1">port))</span>
+<span class="s1">print(</span><span class="s2">&quot;Connected...</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+
+<span class="s1">s_name = s.recv(</span><span class="s3">1024</span><span class="s1">)</span>
+<span class="s1">s_name = s_name.decode()</span>
+<span class="s1">print(s_name</span><span class="s0">, </span><span class="s2">&quot;has joined the chat room</span><span class="s0">\n</span><span class="s2">Enter close socket to exit chat room</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+<span class="s1">name = input(str(</span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">Enter the message you want to capitalise: &quot;</span><span class="s1">))</span>
+<span class="s1">s.send(name.encode())</span>
+<span class="s1">print(name.upper())</span>
+<span class="s0">while True</span><span class="s1">:</span>
+    <span class="s1">message = s.recv(</span><span class="s3">1024</span><span class="s1">)</span>
+    <span class="s1">message = message.decode()</span>
+    <span class="s1">print(s_name</span><span class="s0">, </span><span class="s2">&quot;:&quot;</span><span class="s0">, </span><span class="s1">message)</span>
+    <span class="s1">message = input(str(</span><span class="s2">&quot;Me : &quot;</span><span class="s1">))</span>
+    <span class="s0">if </span><span class="s1">message == </span><span class="s2">&quot;close socket&quot;</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;Left chat room!&quot;</span><span class="s1">)</span>
+        <span class="s1">s.send(message.encode())</span>
+        <span class="s1">print(</span><span class="s2">&quot;</span><span class="s0">\n</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s1">s.close()</span>
+        <span class="s0">break</span>
+    <span class="s1">s.send(message.encode())</span></pre>
+</body>
+</html>
