@@ -1,9 +1,9 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: my-service
+  name: Jana-socket-programming
   description: My service description
-  owner: my-team
+  owner: Hana
 spec:
   type: service
   lifecycle: production
