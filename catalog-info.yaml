@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: Java-socket-programming
   description: My service description
+  annotations:
+    jenkins.io/job-url: "http://localhost:8080/job/Test"
   owner: Hana
 spec:
   type: service
