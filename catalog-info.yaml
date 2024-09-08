@@ -5,7 +5,6 @@ metadata:
   description: My service description
   annotations:
     jenkins.io/job-url: "http://localhost:8080/job/Test"
-    jenkins.io/job-full-name: folder-name/Test
   owner: Hana
 spec:
   type: service
