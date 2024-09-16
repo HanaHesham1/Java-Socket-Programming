@@ -4,7 +4,7 @@ metadata:
   name: Java-socket-programming
   description: My service description
   annotations:
-    jenkins.io/job-url: "http://localhost:8080/job/Test"
+    jenkins.io/job-url: "http://localhost:8080/user/jana/my-views/view/all/job/Test"
     jenkins.io/github-folder: "Test"
     jenkins.io/github-branch: "main"
   owner: Hana
